@@ -7,18 +7,27 @@ class Artists extends Component {
     super(props)
 
     this.state = {
-      artists: ''
+      artists: []
     }
   }
 
   componentDidMount () {
     indexArtists(this.props.user)
-      .then(res => console.log('this is the response: ', res))
+      .then(res => this.setState({ artists: res.data.artists }))
   }
 
   render () {
+    const artists = this.state.artists.map(artist => (
+      <React.Fragment key={artist.id}>
+        <h1>Artist: {artist.name}</h1>
+        <h3>Followers: {artist.current_followers}</h3>
+        <h3>Monthly Listeners: {artist.current_monthly_listeners}</h3>
+      </React.Fragment>
+    ))
     return (
-      <h1>Hello World</h1>
+      <div>
+        {artists}
+      </div>
     )
   }
 }
