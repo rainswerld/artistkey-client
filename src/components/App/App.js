@@ -9,6 +9,7 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Artists from '../Artists/Artists'
+import NewArtist from '../Artists/NewArtist'
 
 class App extends Component {
   constructor () {
@@ -57,6 +58,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/artists' render={() => (
             <Artists msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/new-artist' render={() => (
+            <NewArtist msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
