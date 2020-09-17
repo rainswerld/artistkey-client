@@ -10,3 +10,13 @@ export const indexArtists = user => {
     }
   })
 }
+
+export const indexTracks = (user, artistId) => {
+  return axios({
+    url: `${apiUrl}/tracks/${artistId}`,
+    method: 'GET',
+    headers: {
+      'Authorization': `Token ${user.token}`
+    }
+  })
+}

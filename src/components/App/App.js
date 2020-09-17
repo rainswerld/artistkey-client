@@ -10,6 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Artists from '../Artists/Artists'
 import NewArtist from '../Artists/NewArtist'
+import Tracks from '../Tracks/Tracks'
 
 class App extends Component {
   constructor () {
@@ -61,6 +62,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/new-artist' render={() => (
             <NewArtist msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/tracks/:artist_id' render={({ match }) => (
+            <Tracks msgAlert={this.msgAlert} user={user} match={match} />
           )} />
         </main>
       </Fragment>
