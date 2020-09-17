@@ -33,17 +33,22 @@ class Tracks extends Component {
           </Col>
           <Col md={3}>Streams: {track.spotify_streams}
           </Col>
+          <Col md={3}>Revenue: ${track.spotify_streams * 0.0031}
+          </Col>
         </Row>
       </Container>
     ))
     return (
-      <Container>
-        <Row>
-          <Col>
-            {tracks}
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <Container>
+          <Row>
+            <Col>
+              <h1>Tracks:</h1>
+            </Col>
+          </Row>
+        </Container>
+        {tracks}
+      </div>
     )
   }
 }

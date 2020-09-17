@@ -14,7 +14,6 @@ class Artists extends Component {
 
   componentDidMount () {
     indexArtists(this.props.user)
-      // .then(res => console.log(res))
       .then(res => this.setState({ artists: res.data.artists.reverse() }))
   }
 
@@ -24,23 +23,27 @@ class Artists extends Component {
       margin: '20px',
       padding: '20px'
     }
-    // let revenue = 0
-    // for (let i = 0; i < this.state.artists.tracks.length; i++) {
-    //   revenue += this.state.tracks[i].spotify_streams
-    //   return revenue
-    // }
+
     const artists = this.state.artists.map(artist => (
-      <Container key={artist.id}>
-        <Row style={border}>
+      <Container key={artist.id} style={border}>
+        <Row>
           <Link to={`/tracks/${artist.id}`} md={3}>{artist.name}</Link>
-          <Col md={3}># Of Tracks Monitored: {artist.tracks.length}</Col>
-          <Col md={3}>Money Earned:
-          </Col>
-          <Col md={3}>Followers: {artist.current_followers}</Col>
-          <Col md={3}>Monthly Listeners: {artist.current_monthly_listeners}</Col>
+          <Col>Followers: {artist.current_followers}</Col>
+          <Col>Monthly Listeners: {artist.current_monthly_listeners}</Col>
         </Row>
+        <Container>
+          <Row md={2}>
+            <Col>{artist.tracks.map(track => (
+              <div key={track.id} style={border}>
+                {track.track_name}: ${track.spotify_streams * 0.0031}
+              </div>
+            ))}
+            </Col>
+          </Row>
+        </Container>
       </Container>
     ))
+
     return (
       <div>
         <Container>
