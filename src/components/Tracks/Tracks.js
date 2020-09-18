@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { indexTracks } from '../../api/artists'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 
 class Tracks extends Component {
   constructor (props) {
@@ -44,6 +44,9 @@ class Tracks extends Component {
           <Row>
             <Col>
               <h1>Tracks:</h1>
+            </Col>
+            <Col>
+              <Button className="float-right" href="#new-artist">Add Track</Button>
             </Col>
           </Row>
         </Container>
