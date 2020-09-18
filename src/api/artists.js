@@ -22,7 +22,6 @@ export const indexTracks = (user, artistId) => {
 }
 
 export const editArtist = (user, artistId, editedArtist) => {
-  console.log('this is the editedArtist ', editedArtist)
   return axios({
     url: `${apiUrl}/artists/${artistId}/`,
     method: 'PATCH',
@@ -33,6 +32,16 @@ export const editArtist = (user, artistId, editedArtist) => {
         current_monthly_listeners: editedArtist.current_monthly_listeners
       }
     },
+    headers: {
+      'Authorization': `Token ${user.token}`
+    }
+  })
+}
+
+export const deleteArtist = (user, artistId) => {
+  return axios({
+    url: `${apiUrl}/artists/${artistId}/`,
+    method: 'DELETE',
     headers: {
       'Authorization': `Token ${user.token}`
     }

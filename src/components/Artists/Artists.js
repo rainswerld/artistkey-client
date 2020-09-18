@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
-import { indexArtists, editArtist } from '../../api/artists'
+import { indexArtists, editArtist, deleteArtist } from '../../api/artists'
 import { Container, Row, Col, Button, DropdownButton, Dropdown, ButtonGroup, Modal } from 'react-bootstrap'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
@@ -38,6 +38,18 @@ class Artists extends Component {
         variant: 'success'
       }))
       .catch(console.error)
+  }
+
+  onDeleteArtist = event => {
+    const { msgAlert } = this.props
+    deleteArtist(this.props.user, this.state.selectedArtistId)
+      .then(() => this.componentDidMount())
+      .then(() => this.setState({ show: false }))
+      .then(() => msgAlert({
+        heading: 'Artist Deleted',
+        message: messages.artistDeleted,
+        variant: 'success'
+      }))
   }
 
   handleShow = event => {
@@ -129,7 +141,8 @@ class Artists extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-            <Button variant="secondary" onClick={this.onEditArtist}>Save Changes</Button>
+            <Button variant="success" onClick={this.onEditArtist}>Save Changes</Button>
+            <Button variant="danger" onClick={this.onDeleteArtist}>Delete Artist</Button>
           </Modal.Footer>
         </Modal>
       </div>
