@@ -40,7 +40,7 @@ export const editTrack = (user, trackId, editedTrack) => {
 
 export const deleteTrack = (user, trackId) => {
   return axios({
-    url: `${apiUrl}/tracks/${trackId}`,
+    url: `${apiUrl}/tracks/track/${trackId}`,
     method: 'DELETE',
     headers: {
       'Authorization': `Token ${user.token}`
