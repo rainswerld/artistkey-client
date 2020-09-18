@@ -37,6 +37,7 @@ class Artists extends Component {
         message: messages.updateArtistSuccess,
         variant: 'success'
       }))
+      .catch(console.error)
   }
 
   handleShow = event => {
