@@ -50,6 +50,7 @@ class Artists extends Component {
         message: messages.artistDeleted,
         variant: 'success'
       }))
+      .catch(console.error)
   }
 
   handleShow = event => {

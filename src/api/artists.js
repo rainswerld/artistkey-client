@@ -21,6 +21,33 @@ export const indexTracks = (user, artistId) => {
   })
 }
 
+export const editTrack = (user, trackId, editedTrack) => {
+  return axios({
+    url: `${apiUrl}/tracks/track/${trackId}`,
+    method: 'PATCH',
+    data: {
+      track: {
+        track_name: editedTrack.track_name,
+        spotify_streams: editedTrack.spotify_streams,
+        artist: editedTrack.artist
+      }
+    },
+    headers: {
+      'Authorization': `Token ${user.token}`
+    }
+  })
+}
+
+export const deleteTrack = (user, trackId) => {
+  return axios({
+    url: `${apiUrl}/tracks/${trackId}`,
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Token ${user.token}`
+    }
+  })
+}
+
 export const editArtist = (user, artistId, editedArtist) => {
   return axios({
     url: `${apiUrl}/artists/${artistId}/`,

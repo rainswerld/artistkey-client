@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import Artists from '../Artists/Artists'
 import NewArtist from '../Artists/NewArtist'
 import Tracks from '../Tracks/Tracks'
+import NewTrack from '../Tracks/NewTrack'
 
 class App extends Component {
   constructor () {
@@ -65,6 +66,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/tracks/:artist_id' render={({ match }) => (
             <Tracks msgAlert={this.msgAlert} user={user} match={match} />
+          )} />
+          <AuthenticatedRoute user={user} path='/new-track/:artist_id' render={({ match }) => (
+            <NewTrack msgAlert={this.msgAlert} match={match} user={user} />
           )} />
         </main>
       </Fragment>
