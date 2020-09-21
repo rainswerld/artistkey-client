@@ -15,8 +15,8 @@ Eventually, the application will be expanded into being able to track payout rat
 ## Important Links
 
 - [ArtistKey API](https://github.com/rainswerld/artistkey-api)
-- [Deployed Client](www.link.com)
-- [Deployed API](www.link.com)
+- [Deployed Client](https://rainswerld.github.io/artistkey-client/#/)
+- [Deployed API](https://git.heroku.com/artistkey-api.git)
 
 ## Planning Story
 
