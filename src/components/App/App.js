@@ -12,6 +12,7 @@ import Artists from '../Artists/Artists'
 import NewArtist from '../Artists/NewArtist'
 import Tracks from '../Tracks/Tracks'
 import NewTrack from '../Tracks/NewTrack'
+import Home from '../Home/Home'
 
 class App extends Component {
   constructor () {
@@ -46,6 +47,9 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <Home msgAlert={this.msgAlert} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
