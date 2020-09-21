@@ -40,7 +40,7 @@ class NewTrack extends Component {
     })
       .then(() => msgAlert({
         heading: 'Track Created',
-        message: messages.createdArtistSuccess,
+        message: messages.createdTrackSuccess,
         variant: 'success'
       }))
       .then(() => history.push(`/tracks/${this.props.match.params.artist_id}`))
@@ -83,7 +83,7 @@ class NewTrack extends Component {
                 onChange={handleChange}
               />
             </Col>
-            <Col><Button variant="outline-light" type="submit">Create Track</Button></Col>
+            <Col><Button variant="outline-light" type="submit" onSubmit={this.handleSubmit}>Create Track</Button></Col>
           </form>
         </Row>
       </Container>

@@ -7,6 +7,7 @@ export default {
   changePasswordSuccess: 'Password changed successfully!',
   changePasswordFailure: 'Failed to change passwords. Check your old password and try again.',
   createdArtistSuccess: 'You successfully created a new artist!',
+  createdTrackSuccess: 'You successfully created a new track! ',
   createArtistFailed: 'Something was wrong. Did you include commas in your follower counts?',
   updateArtistSuccess: 'You updated your artist',
   artistDeleted: 'Bye-bye artist!'
