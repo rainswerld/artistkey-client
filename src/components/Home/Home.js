@@ -20,7 +20,7 @@ class Home extends Component {
         <h4 className="text-center sub">Please sign up or sign in</h4>
         <div style={border} className="text-center">
           <Button className="justify-content-center" variant="outline-light" href="#sign-up">SIGN UP</Button>
-          <Button className="justify-content-center" variant="outline-light" href="#sign-in">SIGN UP</Button>
+          <Button className="justify-content-center" variant="outline-light" href="#sign-in">SIGN IN</Button>
         </div>
       </section>
     )
