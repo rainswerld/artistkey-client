@@ -87,21 +87,21 @@ class Tracks extends Component {
       padding: '20px'
     }
     const tracks = this.state.tracks.map(track => (
-      <Container key={track.id}>
-        <Row style={border}>
-          <Col md={3}>Track: {track.track_name}
+      <Container key={track.id} className="cardHue" style={border}>
+        <Row>
+          <Col className="myFont" md={3}>Track: {track.track_name}
           </Col>
-          <Col md={3}>Streams: {track.spotify_streams}
+          <Col className="myFont" md={3}>Streams: {track.spotify_streams}
           </Col>
-          <Col md={3}>Revenue: ${track.spotify_streams * 0.0031}
+          <Col className="myFont" md={3}>Revenue: ${track.spotify_streams * 0.0031}
           </Col>
           <div>
             <DropdownButton
               as={ButtonGroup}
               id="track-dropdown"
               size="sm"
-              variant="secondary"
-              title="Update Track"
+              variant="outline-light"
+              title="UPDATE"
             >
               <Dropdown.Item onClick={this.handleShow} data-trackid={track.id} eventKey="1">Edit</Dropdown.Item>
             </DropdownButton>
@@ -114,7 +114,7 @@ class Tracks extends Component {
         <Container>
           <Row>
             <Col>
-              <h1>Tracks:</h1>
+              <h1 className="myFont artists">TRACKS:</h1>
             </Col>
             <Col>
               <Button className="float-right" href={'#/new-track/' + this.props.match.params.artist_id + '/'}>Add Track</Button>
@@ -122,18 +122,20 @@ class Tracks extends Component {
           </Row>
         </Container>
         {tracks}
-        <Modal centered show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header className="textCenter" closeButton>
-            <Modal.Title className="textCenter">Edit Track</Modal.Title>
+        <Modal centered show={this.state.show} onHide={this.handleClose} className="myModal">
+          <Modal.Header className="textCenter myFont myModal" closeButton>
+            <Modal.Title className="textCenter myFont myModal">Edit Track</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="myModal">
+            <p className="myFont">Track:</p>
             <input type="text" value={this.state.track.track_name} onChange={this.handleChange} name="track_name"></input>
+            <p className="myFont">Spotify Streams:</p>
             <input type="number" value={this.state.track.spotify_streams} onChange={this.handleChange} name="spotify_streams"></input>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-            <Button variant="success" onClick={this.onEditTrack}>Save Changes</Button>
-            <Button variant="danger" onClick={this.onDeleteTrack}>Delete Track</Button>
+          <Modal.Footer className="myModal">
+            <Button variant="light" onClick={this.handleClose}>Close</Button>
+            <Button variant="light" onClick={this.onEditTrack}>Save Changes</Button>
+            <Button variant="outline-danger" onClick={this.onDeleteTrack}>Delete Track</Button>
           </Modal.Footer>
         </Modal>
       </div>

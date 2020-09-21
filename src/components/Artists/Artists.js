@@ -86,35 +86,38 @@ class Artists extends Component {
     }
 
     const artists = this.state.artists.map(artist => (
-      <Container key={artist.id} style={border}>
+      <Container key={artist.id} style={border} className="cardHue">
         <Row>
-          <Link to={`/tracks/${artist.id}`} md={3}>{artist.name}</Link>
-          <Col>Followers: {artist.current_followers}</Col>
-          <Col>Monthly Listeners: {artist.current_monthly_listeners}</Col>
+          <Col><Link className="myFont artistLink" to={`/tracks/${artist.id}`} md={3}>{artist.name}</Link></Col>
+          <Col className="myFont">Followers: {artist.current_followers}</Col>
+          <Col className="myFont">Monthly Listeners: {artist.current_monthly_listeners}</Col>
         </Row>
-        <div>
-          <DropdownButton
-            as={ButtonGroup}
-            id="artists-dropdown"
-            size="sm"
-            variant="secondary"
-            title="Update Artist"
-          >
-            <Dropdown.Item onClick={this.handleShow} data-artistid={artist.id} eventKey="1">Edit</Dropdown.Item>
-            {/* <Dropdown.Item onClick={onDeleteArtist} data-artistid={artist.id} eventKey="2">Delete</Dropdown.Item> */}
-          </DropdownButton>
-        </div>
         <Container>
           <Row md={2}>
             <Col>{artist.tracks.map(track => (
               <div key={track.id} style={border}>
-                <Col md={6}>Spotify Streams: {track.spotify_streams}</Col>
-                <Col md={6}>{track.track_name}: ${track.spotify_streams * 0.0031}</Col>
+                <Col className="myFont">Track: {track.track_name}</Col>
+                <Col className="myFont" md={6}>Spotify Streams: {track.spotify_streams}</Col>
+                <Col className="myFont" md={6}>Revenue: ${track.spotify_streams * 0.0031}</Col>
               </div>
             ))}
             </Col>
           </Row>
         </Container>
+        <Col>
+          <div>
+            <DropdownButton
+              as={ButtonGroup}
+              id="artists-dropdown"
+              size="sm"
+              variant="outline-light"
+              title="UPDATE"
+            >
+              <Dropdown.Item onClick={this.handleShow} data-artistid={artist.id} eventKey="1">Edit</Dropdown.Item>
+              {/* <Dropdown.Item onClick={onDeleteArtist} data-artistid={artist.id} eventKey="2">Delete</Dropdown.Item> */}
+            </DropdownButton>
+          </div>
+        </Col>
       </Container>
     ))
 
@@ -123,27 +126,30 @@ class Artists extends Component {
         <Container>
           <Row>
             <Col md={6}>
-              <h1>Your Artists:</h1>
+              <h1 className="myFont artists">YOUR ARTISTS:</h1>
             </Col>
             <Col md={6}>
-              <Button className="float-right" href="#new-artist">Add Artist</Button>
+              <Button variant="outline-light" className="float-right artists" href="#new-artist">NEW ARTIST</Button>
             </Col>
           </Row>
         </Container>
         {artists}
-        <Modal centered show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header className="textCenter" closeButton>
-            <Modal.Title className="textCenter">Edit Artist</Modal.Title>
+        <Modal centered show={this.state.show} onHide={this.handleClose} className="myModal">
+          <Modal.Header className="textCenter myFont myModal" closeButton>
+            <Modal.Title className="textCenter myFont myModal">Edit Artist</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="myModal">
+            <p className="myFont">Artist:</p>
             <input type="text" value={this.state.artist.name} onChange={this.handleChange} name="name"></input>
+            <p className="myFont">Followers:</p>
             <input type="number" value={this.state.artist.current_followers} onChange={this.handleChange} name="current_followers"></input>
+            <p className="myFont">Monthly Listeners:</p>
             <input type="number" value={this.state.artist.current_monthly_listeners} onChange={this.handleChange} name="current_monthly_listeners"></input>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-            <Button variant="success" onClick={this.onEditArtist}>Save Changes</Button>
-            <Button variant="danger" onClick={this.onDeleteArtist}>Delete Artist</Button>
+          <Modal.Footer className="myModal">
+            <Button variant="light" onClick={this.handleClose}>Close</Button>
+            <Button variant="light" onClick={this.onEditArtist}>Save Changes</Button>
+            <Button variant="outline-danger" onClick={this.onDeleteArtist}>Delete Artist</Button>
           </Modal.Footer>
         </Modal>
       </div>

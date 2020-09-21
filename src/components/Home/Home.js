@@ -11,10 +11,10 @@ class Home extends Component {
 
   render () {
     return (
-      <div>
-        <h1>Welcome to ArtistKey</h1>
-        <h4>Please sign up or sign in</h4>
-      </div>
+      <section className="home">
+        <h1 className="text-center home">WELCOME TO ARTISTKEY</h1>
+        <h4 className="text-center sub">Please sign up or sign in</h4>
+      </section>
     )
   }
 }
