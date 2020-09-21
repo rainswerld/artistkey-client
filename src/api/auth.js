@@ -39,7 +39,6 @@ export const signOut = user => {
 }
 
 export const changePassword = (passwords, user) => {
-  console.log(passwords)
   return axios({
     url: apiUrl + '/change-pw/',
     method: 'PATCH',
