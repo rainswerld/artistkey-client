@@ -96,7 +96,7 @@ class Artists extends Component {
           <Row md={2}>
             <Col>{artist.tracks.map(track => (
               <div key={track.id} style={border}>
-                <Col className="myFont">Track: {track.track_name}</Col>
+                <Col className="myFont"><Link className="myFont trackLink" to={`/tracks/${artist.id}`}>{track.track_name}</Link></Col>
                 <Col className="myFont" md={6}>Spotify Streams: {track.spotify_streams}</Col>
                 <Col className="myFont" md={6}>Revenue: ${track.spotify_streams * 0.0031}</Col>
               </div>
@@ -118,6 +118,7 @@ class Artists extends Component {
             </DropdownButton>
           </div>
         </Col>
+        <Col><Button size="sm" variant="outline-light" href={'#/new-track/' + artist.id}>New Track</Button></Col>
       </Container>
     ))
 
