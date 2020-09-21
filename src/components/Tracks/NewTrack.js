@@ -66,7 +66,7 @@ class NewTrack extends Component {
         <Row>
           <form className="new-track" onSubmit={handleSubmit}>
             <Col style={padding}>
-              <h6>Track Name:</h6>
+              <h6 className="myFont">Track Name:</h6>
               <input
                 placeholder='Track Name'
                 value={track.track_name}
@@ -75,7 +75,7 @@ class NewTrack extends Component {
               />
             </Col>
             <Col style={padding}>
-              <h6>Spotify Streams:</h6>
+              <h6 className="myFont">Spotify Streams:</h6>
               <input
                 placeholder='Spotify Streams'
                 value={track.spotify_streams}
@@ -83,7 +83,7 @@ class NewTrack extends Component {
                 onChange={handleChange}
               />
             </Col>
-            <Col><Button type="submit">Create Track</Button></Col>
+            <Col><Button variant="outline-light" type="submit">Create Track</Button></Col>
           </form>
         </Row>
       </Container>

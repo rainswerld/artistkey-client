@@ -67,7 +67,7 @@ class NewArtist extends Component {
         <Row>
           <form className="new-artist" onSubmit={handleSubmit}>
             <Col style={padding}>
-              <h6>Artist Name:</h6>
+              <h6 className="myFont">Artist Name:</h6>
               <input
                 placeholder='Artist Name'
                 value={artist.name}
@@ -76,7 +76,7 @@ class NewArtist extends Component {
               />
             </Col>
             <Col style={padding}>
-              <h6>Current Follower Count:</h6>
+              <h6 className="myFont">Current Follower Count:</h6>
               <input
                 placeholder='Current Follower Count'
                 value={artist.current_followers}
@@ -85,15 +85,15 @@ class NewArtist extends Component {
               />
             </Col>
             <Col style={padding}>
-              <h6>Current Monthly Listeners:</h6>
+              <h6 className="myFont">Current Monthly Listeners:</h6>
               <input
-                placeholder='Current Follower Count'
+                placeholder='Current Monthly Listeners'
                 value={artist.current_monthly_listeners}
                 name='current_monthly_listeners'
                 onChange={handleChange}
               />
             </Col>
-            <Col><Button type="submit">Create Artist</Button></Col>
+            <Col><Button variant="outline-light" type="submit">Create Artist</Button></Col>
           </form>
         </Row>
       </Container>

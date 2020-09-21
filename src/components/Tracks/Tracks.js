@@ -117,7 +117,7 @@ class Tracks extends Component {
               <h1 className="myFont artists">TRACKS:</h1>
             </Col>
             <Col>
-              <Button className="float-right" href={'#/new-track/' + this.props.match.params.artist_id + '/'}>Add Track</Button>
+              <Button variant="outline-light" className="float-right artists" href={'#/new-track/' + this.props.match.params.artist_id + '/'}>Add Track</Button>
             </Col>
           </Row>
         </Container>
