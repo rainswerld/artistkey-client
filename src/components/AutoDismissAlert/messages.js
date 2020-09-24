@@ -8,7 +8,7 @@ export default {
   changePasswordFailure: 'Failed to change passwords. Check your old password and try again.',
   createdArtistSuccess: 'You successfully created a new artist!',
   createdTrackSuccess: 'You successfully created a new track! ',
-  createTrackFailed: 'The value for this must be a number',
+  createTrackFailed: 'The value for this must be a number, or your number was too large',
   createArtistFailed: 'Something was wrong. Did you include commas in your follower counts?',
   updateArtistSuccess: 'You updated your artist',
   artistDeleted: 'Bye-bye artist!'
