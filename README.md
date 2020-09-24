@@ -53,7 +53,7 @@ Some additions I will be making on the Track Model:
 ## Images
 
 #### App Screenshot:
-![screenshot](https://imgur.com/5myfmKE)
+![screenshot](public/artistkey_pic.png)
 
 ---
 
