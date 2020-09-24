@@ -44,14 +44,14 @@ class NewTrack extends Component {
         variant: 'success'
       }))
       .then(() => history.push(`/tracks/${this.props.match.params.artist_id}`))
-      // .catch(error => {
-      //   this.setState({ track_name: '', spotify_streams: '' })
-      //   msgAlert({
-      //     heading: 'Could Not Create Track ' + error.message,
-      //     message: messages.createArtistFailed,
-      //     variant: 'danger'
-      //   })
-      // })
+      .catch(error => {
+        this.setState({ track_name: '', spotify_streams: '' })
+        msgAlert({
+          heading: 'Could Not Create Track ' + error.message,
+          message: messages.createTrackFailed,
+          variant: 'danger'
+        })
+      })
   }
 
   render () {
